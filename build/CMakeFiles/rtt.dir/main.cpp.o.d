@@ -221,4 +221,6 @@ CMakeFiles/rtt.dir/main.cpp.o: \
  /usr/include/c++/13/bits/ranges_algobase.h /usr/include/c++/13/fstream \
  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
- /usr/include/c++/13/bits/fstream.tcc
+ /usr/include/c++/13/bits/fstream.tcc \
+ /home/parth/Work/All_data/project/C++/raytracing/vec3.h \
+ /home/parth/Work/All_data/project/C++/raytracing/color.h
