@@ -27,7 +27,7 @@ color ray_color(const ray &r)
 
 int main()
 {
-  std::ofstream outputFile("output.ppm");
+  std::ofstream outputFile("output.ppm", std::ios::out | std::ios::trunc);
 
   int image_width{400};
   double aspect_ratio{16.0 / 9.0};
@@ -55,8 +55,11 @@ int main()
   point3 pixel00_loc = viewport_upper_left + 0.5 * (pixel_delta_x + pixel_delta_y);
 
   // render
-  std::cout << "P3\n"
-            << image_width << " " << image_height << "\n255\n";
+  std::cout << "P3\n" << image_width << ' ' << image_height << "\n255\n";
+  if (outputFile.is_open())
+  {
+    outputFile << "P3\n" << image_width << ' ' << image_height << "\n255\n";
+  }
 
   for (int j = 0; j < image_height; j++)
   {
