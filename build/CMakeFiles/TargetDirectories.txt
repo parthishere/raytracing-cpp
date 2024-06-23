@@ -1,0 +1,3 @@
+/home/parth/Work/All_data/project/C++/raytracing/build/CMakeFiles/rtt.dir
+/home/parth/Work/All_data/project/C++/raytracing/build/CMakeFiles/edit_cache.dir
+/home/parth/Work/All_data/project/C++/raytracing/build/CMakeFiles/rebuild_cache.dir
