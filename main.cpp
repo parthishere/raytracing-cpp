@@ -8,6 +8,9 @@
 #include "color.h"
 #include "ray.h"
 
+#define NDEBUG false
+
+
 // point3 == color == vec3
 
 std::random_device rd{};
@@ -18,8 +21,27 @@ std::mt19937 mt{ss};
 
 std::uniform_int_distribution rgb{0, 255};
 
+
+bool hit_sphere(const point3& center, const ray& ray, double radius){
+  vec3 c_q = center - ray.origin();
+
+  double a = dot(ray.direction(),ray.direction());
+  double b = -2.0 * dot(ray.direction(), c_q);
+  double c = dot(c_q, c_q) - (radius*radius);
+
+  double delta = (b*b) - (4*a*c);
+
+  return (delta >= 0);
+}
+
+
+
 color ray_color(const ray &r)
 {
+  if (hit_sphere(point3(0,0,-1), r, 0.5))
+        return color(1, 0, 0);
+
+
   vec3 unit_direction = unit_vector(r.direction());
   auto a = 0.5 * (unit_direction.y() + 1.0);
   return (1.0 - a) * color(1.0, 1.0, 1.0) + a * color(0.5, 0.7, 1.0);
@@ -52,7 +74,7 @@ int main()
 
   // Calculate the location of the upper left pixel.
   point3 viewport_upper_left = camera_center - vec3(0, 0, focal_length) - viewport_x_vec / 2 + ((-1 * viewport_y_vec) / 2);
-  point3 pixel00_loc = viewport_upper_left + 0.5 * (pixel_delta_x + pixel_delta_y);
+  point3 pixel00_loc = viewport_upper_left + (0.5 * (pixel_delta_x + pixel_delta_y));
 
   // render
   std::cout << "P3\n" << image_width << ' ' << image_height << "\n255\n";
@@ -61,10 +83,10 @@ int main()
     outputFile << "P3\n" << image_width << ' ' << image_height << "\n255\n";
   }
 
-  for (int j = 0; j < image_height; j++)
+  for (int i = 0; i < image_height; i++)
   {
-    std::clog << "\rScanlines remaining: " << (image_height - j) << ' ' << std::flush;
-    for (int i = 0; i < image_width; i++)
+    std::clog << "\rScanlines remaining: " << (image_height - i) << ' ' << std::flush;
+    for (int j = 0; j < image_width; j++)
     {
       point3 pixel_center = pixel00_loc + (i * pixel_delta_y) + (j * pixel_delta_x);
       vec3 ray_direction = pixel_center - camera_center;
@@ -76,7 +98,7 @@ int main()
 
       if (outputFile.is_open())
       {
-        write_color(std::cout, pixel_color);
+        // write_color(std::cout, pixel_color);
         write_color(outputFile, pixel_color);
       }
     }
