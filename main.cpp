@@ -24,16 +24,16 @@ double hit_sphere(const point3 &center, const ray &ray, double radius)
 {
   vec3 c_q = center - ray.origin();
 
-  double a = dot(ray.direction(), ray.direction());
-  double b = -2.0 * dot(ray.direction(), c_q);
-  double c = dot(c_q, c_q) - (radius * radius);
+  double a = ray.direction().length_squared();
+  double h = dot(ray.direction(), c_q);
+  double c = c_q.length_squared() - (radius * radius);
 
-  double delta = (b * b) - (4 * a * c);
+  double delta = (h * h) - (a * c);
 
   if (delta < 0)
     return -1.0;
   else
-    return (((-b - sqrt(delta)) / 2 * a));
+    return (((h - sqrt(delta)) / a));
 }
 
 color ray_color(const ray &ray)
@@ -103,7 +103,7 @@ int main()
 
       if (outputFile.is_open())
       {
-        // write_color(std::cout, pixel_color);
+        write_color(std::cout, pixel_color);
         write_color(outputFile, pixel_color);
       }
     }
