@@ -10,7 +10,6 @@
 
 #define NDEBUG false
 
-
 // point3 == color == vec3
 
 std::random_device rd{};
@@ -21,28 +20,32 @@ std::mt19937 mt{ss};
 
 std::uniform_int_distribution rgb{0, 255};
 
-
-bool hit_sphere(const point3& center, const ray& ray, double radius){
+double hit_sphere(const point3 &center, const ray &ray, double radius)
+{
   vec3 c_q = center - ray.origin();
 
-  double a = dot(ray.direction(),ray.direction());
+  double a = dot(ray.direction(), ray.direction());
   double b = -2.0 * dot(ray.direction(), c_q);
-  double c = dot(c_q, c_q) - (radius*radius);
+  double c = dot(c_q, c_q) - (radius * radius);
 
-  double delta = (b*b) - (4*a*c);
+  double delta = (b * b) - (4 * a * c);
 
-  return (delta >= 0);
+  if (delta < 0)
+    return -1.0;
+  else
+    return (((-b - sqrt(delta)) / 2 * a));
 }
 
-
-
-color ray_color(const ray &r)
+color ray_color(const ray &ray)
 {
-  if (hit_sphere(point3(0,0,-1), r, 0.5))
-        return color(1, 0, 0);
+  double alpha = hit_sphere(point3(0, 0, -1), ray, 0.5);
+  if (alpha > 0.0){
+    // The vector (Point_along_ray - C) points from the center of the sphere to the surface.
+    vec3 N = unit_vector(ray.point_along_ray(alpha) - vec3(0,0,-1));
+    return 0.5 * color(N.x()+1, N.y()+1, N.z()+1);
+  }
 
-
-  vec3 unit_direction = unit_vector(r.direction());
+  vec3 unit_direction = unit_vector(ray.direction());
   auto a = 0.5 * (unit_direction.y() + 1.0);
   return (1.0 - a) * color(1.0, 1.0, 1.0) + a * color(0.5, 0.7, 1.0);
 }
@@ -77,10 +80,12 @@ int main()
   point3 pixel00_loc = viewport_upper_left + (0.5 * (pixel_delta_x + pixel_delta_y));
 
   // render
-  std::cout << "P3\n" << image_width << ' ' << image_height << "\n255\n";
+  std::cout << "P3\n"
+            << image_width << ' ' << image_height << "\n255\n";
   if (outputFile.is_open())
   {
-    outputFile << "P3\n" << image_width << ' ' << image_height << "\n255\n";
+    outputFile << "P3\n"
+               << image_width << ' ' << image_height << "\n255\n";
   }
 
   for (int i = 0; i < image_height; i++)
