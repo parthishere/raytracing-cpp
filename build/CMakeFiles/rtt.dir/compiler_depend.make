@@ -3,6 +3,7 @@
 
 CMakeFiles/rtt.dir/main.cpp.o: /home/parth/Work/All_data/project/C++/raytracing/main.cpp \
   /home/parth/Work/All_data/project/C++/raytracing/color.h \
+  /home/parth/Work/All_data/project/C++/raytracing/ray.h \
   /home/parth/Work/All_data/project/C++/raytracing/vec3.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
@@ -318,14 +319,6 @@ CMakeFiles/rtt.dir/main.cpp.o: /home/parth/Work/All_data/project/C++/raytracing/
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h:
 
-/usr/include/c++/13/iomanip:
-
-/usr/include/c++/13/bits/uses_allocator.h:
-
-/usr/include/c++/13/bits/postypes.h:
-
-/usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h:
-
 /usr/include/c++/13/ext/type_traits.h:
 
 /usr/include/c++/13/ext/string_conversions.h:
@@ -339,6 +332,8 @@ CMakeFiles/rtt.dir/main.cpp.o: /home/parth/Work/All_data/project/C++/raytracing/
 /usr/include/c++/13/debug/assertions.h:
 
 /usr/include/c++/13/ctime:
+
+/home/parth/Work/All_data/project/C++/raytracing/ray.h:
 
 /usr/include/c++/13/cstdio:
 
@@ -368,6 +363,14 @@ CMakeFiles/rtt.dir/main.cpp.o: /home/parth/Work/All_data/project/C++/raytracing/
 
 /usr/include/x86_64-linux-gnu/bits/errno.h:
 
+/usr/include/c++/13/bits/uses_allocator.h:
+
+/usr/include/c++/13/bits/postypes.h:
+
+/usr/include/c++/13/iomanip:
+
+/usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h:
+
 /usr/include/c++/13/bits/align.h:
 
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
@@ -393,10 +396,6 @@ CMakeFiles/rtt.dir/main.cpp.o: /home/parth/Work/All_data/project/C++/raytracing/
 /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
 
 /usr/include/c++/13/bits/stl_construct.h:
-
-/usr/include/c++/13/bits/stl_bvector.h:
-
-/usr/include/c++/13/bits/allocator.h:
 
 /usr/include/c++/13/bits/stl_algobase.h:
 
@@ -460,6 +459,8 @@ CMakeFiles/rtt.dir/main.cpp.o: /home/parth/Work/All_data/project/C++/raytracing/
 
 /usr/include/c++/13/bits/quoted_string.h:
 
+/usr/include/c++/13/bits/ptr_traits.h:
+
 /usr/include/c++/13/bits/cxxabi_forced.h:
 
 /usr/include/c++/13/bits/chrono_io.h:
@@ -488,8 +489,6 @@ CMakeFiles/rtt.dir/main.cpp.o: /home/parth/Work/All_data/project/C++/raytracing/
 
 /usr/include/c++/13/bits/fstream.tcc:
 
-/usr/include/c++/13/bits/ptr_traits.h:
-
 /usr/include/c++/13/bits/locale_conv.h:
 
 /usr/include/c++/13/bits/istream.tcc:
@@ -513,6 +512,20 @@ CMakeFiles/rtt.dir/main.cpp.o: /home/parth/Work/All_data/project/C++/raytracing/
 /usr/include/c++/13/bits/random.h:
 
 /usr/include/c++/13/bits/codecvt.h:
+
+/usr/include/c++/13/bits/locale_facets.h:
+
+/usr/include/c++/13/ext/aligned_buffer.h:
+
+/usr/include/locale.h:
+
+/usr/include/c++/13/bits/utility.h:
+
+/usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
+
+/usr/include/c++/13/bits/stl_bvector.h:
+
+/usr/include/c++/13/bits/allocator.h:
 
 /usr/include/c++/13/charconv:
 
@@ -556,11 +569,11 @@ CMakeFiles/rtt.dir/main.cpp.o: /home/parth/Work/All_data/project/C++/raytracing/
 
 /usr/include/c++/13/bits/enable_special_members.h:
 
-/usr/include/c++/13/bits/basic_string.tcc:
-
 /usr/include/c++/13/bits/allocated_ptr.h:
 
 /usr/include/c++/13/bit:
+
+/usr/include/c++/13/bits/basic_string.tcc:
 
 /usr/include/alloca.h:
 
@@ -572,11 +585,15 @@ CMakeFiles/rtt.dir/main.cpp.o: /home/parth/Work/All_data/project/C++/raytracing/
 
 /usr/include/c++/13/stdexcept:
 
-/usr/include/c++/13/bits/exception.h:
+/usr/include/c++/13/bits/localefwd.h:
 
-/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
+/usr/include/c++/13/bits/streambuf_iterator.h:
 
-/usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
+/usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
+
+/usr/include/c++/13/initializer_list:
+
+/usr/include/c++/13/tr1/bessel_function.tcc:
 
 /usr/include/c++/13/bits/cxxabi_init_exception.h:
 
@@ -584,25 +601,11 @@ CMakeFiles/rtt.dir/main.cpp.o: /home/parth/Work/All_data/project/C++/raytracing/
 
 /usr/include/c++/13/typeinfo:
 
-/usr/include/c++/13/bits/locale_facets.h:
+/usr/include/c++/13/bits/exception.h:
 
-/usr/include/c++/13/bits/localefwd.h:
+/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
 
-/usr/include/c++/13/bits/streambuf_iterator.h:
-
-/usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
-
-/usr/include/c++/13/ext/aligned_buffer.h:
-
-/usr/include/locale.h:
-
-/usr/include/c++/13/bits/utility.h:
-
-/usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
-
-/usr/include/c++/13/initializer_list:
-
-/usr/include/c++/13/tr1/bessel_function.tcc:
+/usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
 
 /usr/include/c++/13/bits/basic_ios.tcc:
 
@@ -679,6 +682,10 @@ CMakeFiles/rtt.dir/main.cpp.o: /home/parth/Work/All_data/project/C++/raytracing/
 /usr/include/c++/13/random:
 
 /usr/include/c++/13/pstl/pstl_config.h:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h:
+
+/usr/include/x86_64-linux-gnu/bits/wordsize.h:
 
 /usr/include/c++/13/span:
 
@@ -841,7 +848,3 @@ CMakeFiles/rtt.dir/main.cpp.o: /home/parth/Work/All_data/project/C++/raytracing/
 /usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/typesizes.h:
-
-/usr/include/x86_64-linux-gnu/bits/wordsize.h:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h:
