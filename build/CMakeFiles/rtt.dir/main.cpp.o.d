@@ -223,4 +223,5 @@ CMakeFiles/rtt.dir/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
  /usr/include/c++/13/bits/fstream.tcc \
  /home/parth/Work/All_data/project/C++/raytracing/vec3.h \
- /home/parth/Work/All_data/project/C++/raytracing/color.h
+ /home/parth/Work/All_data/project/C++/raytracing/color.h \
+ /home/parth/Work/All_data/project/C++/raytracing/ray.h
