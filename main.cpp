@@ -4,9 +4,9 @@
 #include <chrono>
 #include <fstream>
 
-#include "vec3.h"
-#include "color.h"
-#include "ray.h"
+#include "vec3.hpp"
+#include "color.hpp"
+#include "ray.hpp"
 
 #define NDEBUG false
 
@@ -20,29 +20,14 @@ std::mt19937 mt{ss};
 
 std::uniform_int_distribution rgb{0, 255};
 
-double hit_sphere(const point3 &center, const ray &ray, double radius)
+color ray_color(const Ray &ray)
 {
-  vec3 c_q = center - ray.origin();
-
-  double a = ray.direction().length_squared();
-  double h = dot(ray.direction(), c_q);
-  double c = c_q.length_squared() - (radius * radius);
-
-  double delta = (h * h) - (a * c);
-
-  if (delta < 0)
-    return -1.0;
-  else
-    return (((h - sqrt(delta)) / a));
-}
-
-color ray_color(const ray &ray)
-{
-  double alpha = hit_sphere(point3(0, 0, -1), ray, 0.5);
-  if (alpha > 0.0){
+  double alpha = 1; // hit_sphere(point3(0, 0, -1), ray, 0.5);
+  if (alpha > 0.0)
+  {
     // The vector (Point_along_ray - C) points from the center of the sphere to the surface.
-    vec3 N = unit_vector(ray.point_along_ray(alpha) - vec3(0,0,-1));
-    return 0.5 * color(N.x()+1, N.y()+1, N.z()+1);
+    vec3 N = unit_vector(ray.point_along_ray(alpha) - vec3(0, 0, -1));
+    return 0.5 * color(N.x() + 1, N.y() + 1, N.z() + 1);
   }
 
   vec3 unit_direction = unit_vector(ray.direction());
@@ -96,7 +81,7 @@ int main()
       point3 pixel_center = pixel00_loc + (i * pixel_delta_y) + (j * pixel_delta_x);
       vec3 ray_direction = pixel_center - camera_center;
 
-      ray r(camera_center, ray_direction);
+      Ray r(camera_center, ray_direction);
 
       // vec3 pixel_color = vec3(rgb(mt), rgb(mt), rgb(mt)); // random pixels
       vec3 pixel_color = ray_color(r);

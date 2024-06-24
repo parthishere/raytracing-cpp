@@ -3,9 +3,9 @@
 
 CMakeFiles/rtt.dir/main.cpp.o
  /home/parth/Work/All_data/project/C++/raytracing/main.cpp
- /home/parth/Work/All_data/project/C++/raytracing/color.h
- /home/parth/Work/All_data/project/C++/raytracing/ray.h
- /home/parth/Work/All_data/project/C++/raytracing/vec3.h
+ /home/parth/Work/All_data/project/C++/raytracing/color.hpp
+ /home/parth/Work/All_data/project/C++/raytracing/ray.hpp
+ /home/parth/Work/All_data/project/C++/raytracing/vec3.hpp
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h
  /usr/include/asm-generic/errno.h

@@ -1,13 +1,13 @@
 #ifndef __RAY_H__
 #define __RAY_H__
 
-#include "vec3.h"
+#include "vec3.hpp"
 
-class ray{
+class Ray{
     public:
-        ray() {};
+        Ray() {};
 
-        ray(const point3& origin, const vec3& direction) : org(origin), dir(direction) {};
+        Ray(const point3& origin, const vec3& direction) : org(origin), dir(direction) {};
 
         const point3& origin() const { return org; };
         const vec3& direction() const { return dir; };
