@@ -3,9 +3,9 @@
 
 #include "hittable.hpp"
 
-class sphere : public Hittable {
+class Sphere : public Hittable {
     public:
-        sphere(const point3& center, double radius) : center(center), radius(fmax(0,radius)) {}
+        Sphere(const point3& center, double radius) : center(center), radius(fmax(0,radius)) {}
 
         bool hit(const Ray& ray, double ray_along_distance_t_min, double ray_along_distance_t_max, HitRecord& record) const override {
 

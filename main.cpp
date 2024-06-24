@@ -1,12 +1,12 @@
-#include <iostream>
 #include <cstdlib>
 #include <random>
 #include <chrono>
 #include <fstream>
 
-#include "vec3.hpp"
-#include "color.hpp"
-#include "ray.hpp"
+#include "macros.hpp"
+#include "hittable_list.hpp"
+#include "hittable.hpp"
+#include "sphere.hpp"
 
 #define NDEBUG false
 
@@ -20,14 +20,13 @@ std::mt19937 mt{ss};
 
 std::uniform_int_distribution rgb{0, 255};
 
-color ray_color(const Ray &ray)
+color ray_color(const Ray &ray, const Hittable& world)
 {
-  double alpha = 1; // hit_sphere(point3(0, 0, -1), ray, 0.5);
-  if (alpha > 0.0)
+  HitRecord record;
+  if (world.hit(ray, 0, infinity, record))
   {
     // The vector (Point_along_ray - C) points from the center of the sphere to the surface.
-    vec3 N = unit_vector(ray.point_along_ray(alpha) - vec3(0, 0, -1));
-    return 0.5 * color(N.x() + 1, N.y() + 1, N.z() + 1);
+    return 0.5 * (record.normal + color(1,1,1));
   }
 
   vec3 unit_direction = unit_vector(ray.direction());
@@ -64,6 +63,12 @@ int main()
   point3 viewport_upper_left = camera_center - vec3(0, 0, focal_length) - viewport_x_vec / 2 + ((-1 * viewport_y_vec) / 2);
   point3 pixel00_loc = viewport_upper_left + (0.5 * (pixel_delta_x + pixel_delta_y));
 
+
+  // World
+  HittableList world;
+  world.add(make_shared<Sphere>(point3(0,-100.5,-1), 100));
+  world.add(make_shared<Sphere>(point3(0,0,-1), 0.5));
+
   // render
   std::cout << "P3\n"
             << image_width << ' ' << image_height << "\n255\n";
@@ -81,10 +86,10 @@ int main()
       point3 pixel_center = pixel00_loc + (i * pixel_delta_y) + (j * pixel_delta_x);
       vec3 ray_direction = pixel_center - camera_center;
 
-      Ray r(camera_center, ray_direction);
+      Ray ray(camera_center, ray_direction);
 
       // vec3 pixel_color = vec3(rgb(mt), rgb(mt), rgb(mt)); // random pixels
-      vec3 pixel_color = ray_color(r);
+      vec3 pixel_color = ray_color(ray, world);
 
       if (outputFile.is_open())
       {

@@ -10,7 +10,7 @@ class HitRecord {
         double distance;
         bool hit_on_front_face;
 
-    void set_face_normal(const Ray& ray, const vec3& outward_normal){
+    void set_hit_on_front_face(const Ray& ray, const vec3& outward_normal){
         hit_on_front_face = dot(outward_normal, ray.direction()) < 0.0;
         normal = hit_on_front_face ? outward_normal : -outward_normal; 
     }
