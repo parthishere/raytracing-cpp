@@ -222,6 +222,7 @@ CMakeFiles/rtt.dir/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
  /usr/include/c++/13/bits/fstream.tcc \
+ /home/parth/Work/All_data/project/C++/raytracing/camera.hpp \
  /home/parth/Work/All_data/project/C++/raytracing/macros.hpp \
  /usr/include/c++/13/iostream /usr/include/c++/13/memory \
  /usr/include/c++/13/bits/stl_raw_storage_iter.h \
@@ -255,6 +256,7 @@ CMakeFiles/rtt.dir/main.cpp.o: \
  /home/parth/Work/All_data/project/C++/raytracing/color.hpp \
  /home/parth/Work/All_data/project/C++/raytracing/vec3.hpp \
  /home/parth/Work/All_data/project/C++/raytracing/ray.hpp \
- /home/parth/Work/All_data/project/C++/raytracing/hittable_list.hpp \
+ /home/parth/Work/All_data/project/C++/raytracing/interval.hpp \
  /home/parth/Work/All_data/project/C++/raytracing/hittable.hpp \
+ /home/parth/Work/All_data/project/C++/raytracing/hittable_list.hpp \
  /home/parth/Work/All_data/project/C++/raytracing/sphere.hpp

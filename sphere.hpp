@@ -2,12 +2,13 @@
 #define SPHERE_H
 
 #include "hittable.hpp"
+#include "interval.hpp"
 
 class Sphere : public Hittable {
     public:
         Sphere(const point3& center, double radius) : center(center), radius(fmax(0,radius)) {}
 
-        bool hit(const Ray& ray, double ray_along_distance_t_min, double ray_along_distance_t_max, HitRecord& record) const override {
+        bool hit(const Ray& ray, Interval ray_t, HitRecord& record) const override {
 
             vec3 c_q = center - ray.origin();
 
@@ -23,9 +24,9 @@ class Sphere : public Hittable {
             double sqrt_delta = sqrt(delta);
 
             double root = ((h - sqrt_delta) / a);   
-            if (root <= ray_along_distance_t_min || root >= ray_along_distance_t_max ) {
+            if (!ray_t.surrounds(root)) {
                 root = ((h - sqrt_delta) / a);
-                if(root <= ray_along_distance_t_min || root >= ray_along_distance_t_max ){
+                if(!ray_t.surrounds(root)){
                     return false;
                 }
             }
