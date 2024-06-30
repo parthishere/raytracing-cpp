@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/parth/Work/All_data/project/C++/raytracing/build",
+  "command": "/usr/bin/g++    -Wall -Wextra -pedantic -g -g -O0 -std=gnu++20 -o CMakeFiles/rtt.dir/main.cpp.o -c /home/parth/Work/All_data/project/C++/raytracing/main.cpp",
+  "file": "/home/parth/Work/All_data/project/C++/raytracing/main.cpp",
+  "output": "CMakeFiles/rtt.dir/main.cpp.o"
+}
+]

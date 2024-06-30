@@ -1,7 +1,6 @@
 {
+    "C_Cpp.default.compilerPath": "/usr/bin/g++",
     "files.associations": {
-        "iostream": "cpp",
-        "random": "cpp",
         "array": "cpp",
         "atomic": "cpp",
         "bit": "cpp",
@@ -33,6 +32,7 @@
         "memory_resource": "cpp",
         "numeric": "cpp",
         "optional": "cpp",
+        "random": "cpp",
         "ratio": "cpp",
         "string_view": "cpp",
         "system_error": "cpp",
@@ -44,6 +44,7 @@
         "initializer_list": "cpp",
         "iomanip": "cpp",
         "iosfwd": "cpp",
+        "iostream": "cpp",
         "istream": "cpp",
         "limits": "cpp",
         "new": "cpp",

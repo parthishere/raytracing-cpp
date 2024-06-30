@@ -4,15 +4,14 @@
 #include "macros.hpp"
 
 #include "hittable.hpp"
-
-
+#include "random.hpp"
 
 class Camera
 {
 public:
     int image_width{400};
     double aspect_ratio{16.0 / 9.0};
-    
+    int samples_per_pixel = 10;
 
     void render(const Hittable &world)
     {
@@ -27,23 +26,24 @@ public:
                        << image_width << ' ' << image_height << "\n255\n";
         }
 
-        for (int i = 0; i < image_height; i++)
+        for (int h_px = 0; h_px < image_height; h_px++)
         {
-            std::clog << "\rScanlines remaining: " << (image_height - i) << ' ' << std::flush;
-            for (int j = 0; j < image_width; j++)
+            std::clog << "\rScanlines remaining: " << (image_height - h_px) << ' ' << std::flush;
+            for (int w_px = 0; w_px < image_width; w_px++)
             {
-                point3 pixel_center = pixel00_loc + (i * pixel_delta_y) + (j * pixel_delta_x);
-                vec3 ray_direction = pixel_center - camera_center;
-
-                Ray ray(camera_center, ray_direction);
-
-                // vec3 pixel_color = vec3(rgb(mt), rgb(mt), rgb(mt)); // random pixels
-                vec3 pixel_color = ray_color(ray, world);
+                color average_color(0, 0, 0);
+                for (int k = 0; k < samples_per_pixel; k++)
+                {   
+                    
+                    // vec3 pixel_color = vec3(rgb(mt), rgb(mt), rgb(mt)); // random pixels
+                    Ray r = random_ray_at_pixel(w_px, h_px);
+                    average_color += ray_Color(r, world);
+                }
 
                 if (outputFile.is_open())
                 {
-                    // write_color(std::cout, pixel_color);
-                    write_color(outputFile, pixel_color);
+                    // write_color(std::cout, (average_color/samples_per_pixel));
+                    write_color(outputFile, (average_color / samples_per_pixel));
                 }
             }
         }
@@ -59,6 +59,7 @@ private:
     point3 pixel00_loc;
     point3 camera_center;
     std::ofstream outputFile;
+    Random random{};
 
     void initialize()
     {
@@ -87,7 +88,17 @@ private:
         pixel00_loc = viewport_upper_left + (0.5 * (pixel_delta_x + pixel_delta_y));
     }
 
-    color ray_color(const Ray &ray, const Hittable &world) const
+    Ray random_ray_at_pixel(int pixel_width_index, int pixel_height_index)
+    {
+        auto offset = random.sample_square();
+        point3 pixel_center = pixel00_loc + ((pixel_height_index +offset.y()) * pixel_delta_y) + ((pixel_width_index +offset.x())* pixel_delta_x);
+        vec3 ray_direction = pixel_center - camera_center;
+
+        Ray ray(camera_center, ray_direction);
+        return ray;
+    }
+
+    color ray_Color(const Ray &ray, const Hittable &world) const
     {
 
         HitRecord record;

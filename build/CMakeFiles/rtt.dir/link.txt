@@ -1,1 +1,1 @@
-/usr/bin/c++  -Wall -Wextra -pedantic CMakeFiles/rtt.dir/main.cpp.o -o rtt 
+/usr/bin/g++  -Wall -Wextra -pedantic -g -g -O0 CMakeFiles/rtt.dir/main.cpp.o -o rtt 

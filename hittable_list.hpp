@@ -29,6 +29,7 @@ class HittableList : public Hittable {
                     hit_anything = true;
                     closest_point_of_intersection = temp_record.distance;
                     record = temp_record;
+                    break;
                 }
             }
 
