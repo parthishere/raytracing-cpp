@@ -106,7 +106,7 @@ private:
             return color(0, 0, 0);
 
         HitRecord record;
-        if (world.hit(ray, Interval(0, infinity), record))
+        if (world.hit(ray, Interval(0.001, infinity), record))
         {
             vec3 direction = random_on_hemisphere(record.normal);
             // The vector (Point_along_ray - C) points from the center of the sphere to the surface.
