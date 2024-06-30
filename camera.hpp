@@ -9,9 +9,10 @@
 class Camera
 {
 public:
-    int image_width{400};
-    double aspect_ratio{16.0 / 9.0};
-    int samples_per_pixel = 10;
+    int image_width{400};            // Rendered image width in pixel count
+    double aspect_ratio{16.0 / 9.0}; // Ratio of image width over height
+    int samples_per_pixel = 10;      // Count of random samples for each pixel
+    int max_depth = 10;              // Maximum number of ray bounces into scene
 
     void render(const Hittable &world)
     {
@@ -33,11 +34,11 @@ public:
             {
                 color average_color(0, 0, 0);
                 for (int k = 0; k < samples_per_pixel; k++)
-                {   
-                    
+                {
+
                     // vec3 pixel_color = vec3(rgb(mt), rgb(mt), rgb(mt)); // random pixels
                     Ray r = random_ray_at_pixel(w_px, h_px);
-                    average_color += ray_Color(r, world);
+                    average_color += ray_Color(r, max_depth, world);
                 }
 
                 if (outputFile.is_open())
@@ -91,23 +92,26 @@ private:
     Ray random_ray_at_pixel(int pixel_width_index, int pixel_height_index)
     {
         auto offset = random.sample_square();
-        point3 pixel_center = pixel00_loc + ((pixel_height_index +offset.y()) * pixel_delta_y) + ((pixel_width_index +offset.x())* pixel_delta_x);
+        point3 pixel_center = pixel00_loc + ((pixel_height_index + offset.y()) * pixel_delta_y) + ((pixel_width_index + offset.x()) * pixel_delta_x);
         vec3 ray_direction = pixel_center - camera_center;
 
         Ray ray(camera_center, ray_direction);
         return ray;
     }
 
-    color ray_Color(const Ray &ray, const Hittable &world) const
+    color ray_Color(const Ray &ray, int max_depth, const Hittable &world) const
     {
+        // If we've exceeded the ray bounce limit, no more light is gathered.
+        if (max_depth <= 0)
+            return color(0, 0, 0);
 
         HitRecord record;
         if (world.hit(ray, Interval(0, infinity), record))
         {
             vec3 direction = random_on_hemisphere(record.normal);
             // The vector (Point_along_ray - C) points from the center of the sphere to the surface.
-            return 0.5 * ray_Color(Ray(record.point, direction), world);
-        } 
+            return 0.5 * ray_Color(Ray(record.point, direction), max_depth - 1, world);
+        }
 
         vec3 unit_direction = unit_vector(ray.direction());
         auto a = 0.5 * (unit_direction.y() + 1.0);
