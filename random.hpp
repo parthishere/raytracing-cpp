@@ -20,6 +20,7 @@ public:
         // Returns the vector to a random point in the [-.5,-.5]-[+.5,+.5] unit square.
         return vec3(random() - 0.5, random() - 0.5, 0);
     }
+
     
 private:
     double min, max;
