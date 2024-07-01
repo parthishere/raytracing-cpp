@@ -73,7 +73,7 @@ private:
         double focal_length{1.0};
         camera_center = {0, 0, 0};
 
-        double viewport_height{2.0};
+        double viewport_height = 2 * tan(degrees_to_radians(vfov)/2) * focal_length;
         //  I have not used aspect ratio as when computing viewport_width, it's because the value set to aspect_ratio is the ideal ratio, it may not be the actual ratio between image_width and image_height. If image_height was allowed to be real valued—rather than just an integer—then it would be fine to use aspect_ratio. But the actual ratio between image_width and image_height can vary based on two parts of the code. First, image_height is rounded down to the nearest integer, which can increase the ratio. Second, we don't allow image_height to be less than one, which can also change the actual aspect ratio.
         double viewport_width = viewport_height * (double(image_width) / image_height);
 
