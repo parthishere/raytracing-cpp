@@ -43,13 +43,13 @@ private:
         std::cout << std::setw(width/2 + 7) << "ELAPSED TIME" << std::setw(width/2 - 7) << '\n';
         std::cout << separator << '\n';
         
-        std::cout << std::left << std::setw(20) << "Seconds:" << std::right << std::setw(width - 20) << seconds << " s\n";
-        std::cout << std::left << std::setw(20) << "Milliseconds:" << std::right << std::setw(width - 20) << milliseconds << " ms\n";
-        std::cout << std::left << std::setw(20) << "Microseconds:" << std::right << std::setw(width - 20) << microseconds << " µs\n";
+        std::cout << std::left << std::setw(20) << "Seconds:" << std::right << std::setw(width - 23) << seconds << " s\n";
+        std::cout << std::left << std::setw(20) << "Milliseconds:" << std::right << std::setw(width - 23) << milliseconds << " ms\n";
+        std::cout << std::left << std::setw(20) << "Microseconds:" << std::right << std::setw(width - 23) << microseconds << " µs\n";
         
         std::cout << separator << '\n';
-        std::cout << std::left << std::setw(20) << "Total Time:" << std::right << std::setw(width - 20) << elapsed << " µs\n";
-        std::cout << std::left << std::setw(20) << "Total Time:" << std::right << std::setw(width - 20) << std::fixed << std::setprecision(3) << elapsed * 0.001 << " ms\n";
+        std::cout << std::left << std::setw(20) << "Total Time:" << std::right << std::setw(width - 23) << elapsed << " µs\n";
+        std::cout << std::left << std::setw(20) << "Total Time:" << std::right << std::setw(width - 23) << std::fixed << std::setprecision(3) << elapsed * 0.001 << " ms\n";
         std::cout << separator << '\n';
     }
 };
