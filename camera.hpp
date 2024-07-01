@@ -108,7 +108,8 @@ private:
         HitRecord record;
         if (world.hit(ray, Interval(0.001, infinity), record))
         {
-            vec3 direction = random_on_hemisphere(record.normal);
+            // vec3 direction = random_on_hemisphere(record.normal);
+            vec3 direction = record.normal + random_unit_vector();
             // The vector (Point_along_ray - C) points from the center of the sphere to the surface.
             return 0.5 * ray_Color(Ray(record.point, direction), max_depth - 1, world);
         }
