@@ -5,6 +5,7 @@
 #include "hittable_list.hpp"
 #include "hittable.hpp"
 #include "sphere.hpp"
+#include "timer.hpp"
 
 #define NDEBUG false
 
@@ -13,6 +14,7 @@
 int main()
 {
 
+  Timer timer;
   // World
   HittableList world;
   auto material_ground = make_shared<Lambertian>(color(0.8, 0.8, 0.0));

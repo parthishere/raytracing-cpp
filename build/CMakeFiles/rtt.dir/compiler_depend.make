@@ -12,6 +12,7 @@ CMakeFiles/rtt.dir/main.cpp.o: /home/parth/Work/All_data/project/C++/raytracing/
   /home/parth/Work/All_data/project/C++/raytracing/random.hpp \
   /home/parth/Work/All_data/project/C++/raytracing/ray.hpp \
   /home/parth/Work/All_data/project/C++/raytracing/sphere.hpp \
+  /home/parth/Work/All_data/project/C++/raytracing/timer.hpp \
   /home/parth/Work/All_data/project/C++/raytracing/vec3.hpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
@@ -408,12 +409,6 @@ CMakeFiles/rtt.dir/main.cpp.o: /home/parth/Work/All_data/project/C++/raytracing/
 
 /usr/include/x86_64-linux-gnu/bits/time64.h:
 
-/usr/include/c++/13/cstdio:
-
-/usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
-
-/usr/include/c++/13/bits/charconv.h:
-
 /usr/include/c++/13/concepts:
 
 /usr/include/c++/13/memory:
@@ -558,6 +553,8 @@ CMakeFiles/rtt.dir/main.cpp.o: /home/parth/Work/All_data/project/C++/raytracing/
 
 /usr/include/x86_64-linux-gnu/bits/stdint-least.h:
 
+/usr/include/c++/13/bits/locale_facets_nonio.tcc:
+
 /usr/include/c++/13/bits/locale_facets.h:
 
 /usr/include/c++/13/bits/basic_ios.tcc:
@@ -622,6 +619,16 @@ CMakeFiles/rtt.dir/main.cpp.o: /home/parth/Work/All_data/project/C++/raytracing/
 
 /home/parth/Work/All_data/project/C++/raytracing/camera.hpp:
 
+/usr/include/c++/13/variant:
+
+/usr/include/x86_64-linux-gnu/bits/waitstatus.h:
+
+/usr/include/c++/13/bits/exception_defines.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
+
+/usr/include/math.h:
+
 /usr/include/c++/13/bits/uniform_int_dist.h:
 
 /usr/include/c++/13/bits/locale_classes.tcc:
@@ -633,16 +640,6 @@ CMakeFiles/rtt.dir/main.cpp.o: /home/parth/Work/All_data/project/C++/raytracing/
 /usr/include/x86_64-linux-gnu/bits/types/time_t.h:
 
 /home/parth/Work/All_data/project/C++/raytracing/hittable.hpp:
-
-/usr/include/c++/13/variant:
-
-/usr/include/x86_64-linux-gnu/bits/waitstatus.h:
-
-/usr/include/c++/13/bits/exception_defines.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
-
-/usr/include/math.h:
 
 /usr/include/c++/13/cmath:
 
@@ -658,6 +655,12 @@ CMakeFiles/rtt.dir/main.cpp.o: /home/parth/Work/All_data/project/C++/raytracing/
 
 /usr/include/c++/13/optional:
 
+/usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
+
+/usr/include/c++/13/bits/charconv.h:
+
+/usr/include/c++/13/cstdio:
+
 /usr/include/c++/13/bits/allocated_ptr.h:
 
 /usr/include/c++/13/bit:
@@ -672,7 +675,7 @@ CMakeFiles/rtt.dir/main.cpp.o: /home/parth/Work/All_data/project/C++/raytracing/
 
 /usr/include/c++/13/bits/cpp_type_traits.h:
 
-/usr/include/c++/13/bits/locale_facets_nonio.tcc:
+/home/parth/Work/All_data/project/C++/raytracing/timer.hpp:
 
 /usr/include/alloca.h:
 
@@ -962,12 +965,12 @@ CMakeFiles/rtt.dir/main.cpp.o: /home/parth/Work/All_data/project/C++/raytracing/
 
 /usr/include/x86_64-linux-gnu/bits/sched.h:
 
+/usr/include/x86_64-linux-gnu/bits/time.h:
+
+/usr/include/x86_64-linux-gnu/bits/select.h:
+
 /usr/include/x86_64-linux-gnu/bits/timex.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
 
 /usr/include/x86_64-linux-gnu/bits/syscall.h:
-
-/usr/include/x86_64-linux-gnu/bits/select.h:
-
-/usr/include/x86_64-linux-gnu/bits/time.h:

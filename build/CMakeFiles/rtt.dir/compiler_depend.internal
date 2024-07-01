@@ -13,6 +13,7 @@ CMakeFiles/rtt.dir/main.cpp.o
  /home/parth/Work/All_data/project/C++/raytracing/random.hpp
  /home/parth/Work/All_data/project/C++/raytracing/ray.hpp
  /home/parth/Work/All_data/project/C++/raytracing/sphere.hpp
+ /home/parth/Work/All_data/project/C++/raytracing/timer.hpp
  /home/parth/Work/All_data/project/C++/raytracing/vec3.hpp
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h
