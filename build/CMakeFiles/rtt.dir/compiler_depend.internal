@@ -9,6 +9,7 @@ CMakeFiles/rtt.dir/main.cpp.o
  /home/parth/Work/All_data/project/C++/raytracing/hittable_list.hpp
  /home/parth/Work/All_data/project/C++/raytracing/interval.hpp
  /home/parth/Work/All_data/project/C++/raytracing/macros.hpp
+ /home/parth/Work/All_data/project/C++/raytracing/material.hpp
  /home/parth/Work/All_data/project/C++/raytracing/random.hpp
  /home/parth/Work/All_data/project/C++/raytracing/ray.hpp
  /home/parth/Work/All_data/project/C++/raytracing/sphere.hpp

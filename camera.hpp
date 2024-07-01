@@ -5,6 +5,7 @@
 
 #include "hittable.hpp"
 #include "random.hpp"
+#include "material.hpp"
 
 class Camera
 {
@@ -108,10 +109,12 @@ private:
         HitRecord record;
         if (world.hit(ray, Interval(0.001, infinity), record))
         {
-            // vec3 direction = random_on_hemisphere(record.normal);
-            vec3 direction = record.normal + random_unit_vector();
-            // The vector (Point_along_ray - C) points from the center of the sphere to the surface.
-            return 0.5 * ray_Color(Ray(record.point, direction), max_depth - 1, world);
+            Ray scattered;
+            color attenuation;
+            if(record.material->scatter(ray, record, attenuation, scattered)){
+                return attenuation * ray_Color(scattered, max_depth-1, world);
+            }
+            return color(0,0,0);
         }
 
         vec3 unit_direction = unit_vector(ray.direction());

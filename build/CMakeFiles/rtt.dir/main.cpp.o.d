@@ -258,5 +258,6 @@ CMakeFiles/rtt.dir/main.cpp.o: \
  /usr/include/c++/13/optional \
  /usr/include/c++/13/bits/enable_special_members.h \
  /usr/include/c++/13/span /usr/include/c++/13/variant \
+ /home/parth/Work/All_data/project/C++/raytracing/material.hpp \
  /home/parth/Work/All_data/project/C++/raytracing/hittable_list.hpp \
  /home/parth/Work/All_data/project/C++/raytracing/sphere.hpp

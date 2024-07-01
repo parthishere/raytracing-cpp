@@ -8,6 +8,7 @@ CMakeFiles/rtt.dir/main.cpp.o: /home/parth/Work/All_data/project/C++/raytracing/
   /home/parth/Work/All_data/project/C++/raytracing/hittable_list.hpp \
   /home/parth/Work/All_data/project/C++/raytracing/interval.hpp \
   /home/parth/Work/All_data/project/C++/raytracing/macros.hpp \
+  /home/parth/Work/All_data/project/C++/raytracing/material.hpp \
   /home/parth/Work/All_data/project/C++/raytracing/random.hpp \
   /home/parth/Work/All_data/project/C++/raytracing/ray.hpp \
   /home/parth/Work/All_data/project/C++/raytracing/sphere.hpp \
@@ -405,6 +406,8 @@ CMakeFiles/rtt.dir/main.cpp.o: /home/parth/Work/All_data/project/C++/raytracing/
 
 /usr/include/x86_64-linux-gnu/bits/types.h:
 
+/usr/include/x86_64-linux-gnu/bits/time64.h:
+
 /usr/include/c++/13/cstdio:
 
 /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
@@ -479,10 +482,6 @@ CMakeFiles/rtt.dir/main.cpp.o: /home/parth/Work/All_data/project/C++/raytracing/
 
 /usr/include/c++/13/cstddef:
 
-/usr/include/c++/13/cstdlib:
-
-/usr/include/c++/13/cstdint:
-
 /usr/include/c++/13/bits/sstream.tcc:
 
 /home/parth/Work/All_data/project/C++/raytracing/interval.hpp:
@@ -525,6 +524,10 @@ CMakeFiles/rtt.dir/main.cpp.o: /home/parth/Work/All_data/project/C++/raytracing/
 
 /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
 
+/usr/include/c++/13/cstdint:
+
+/usr/include/c++/13/cstdlib:
+
 /usr/include/c++/13/cctype:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
@@ -534,8 +537,6 @@ CMakeFiles/rtt.dir/main.cpp.o: /home/parth/Work/All_data/project/C++/raytracing/
 /usr/include/c++/13/tr1/gamma.tcc:
 
 /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
-
-/usr/include/c++/13/bits/quoted_string.h:
 
 /usr/include/c++/13/bits/stl_heap.h:
 
@@ -581,8 +582,6 @@ CMakeFiles/rtt.dir/main.cpp.o: /home/parth/Work/All_data/project/C++/raytracing/
 
 /usr/include/c++/13/bits/basic_ios.h:
 
-/usr/include/x86_64-linux-gnu/bits/time64.h:
-
 /usr/include/c++/13/bits/stringfwd.h:
 
 /usr/include/c++/13/bits/iterator_concepts.h:
@@ -603,8 +602,6 @@ CMakeFiles/rtt.dir/main.cpp.o: /home/parth/Work/All_data/project/C++/raytracing/
 
 /usr/include/libintl.h:
 
-/usr/include/c++/13/bits/chrono_io.h:
-
 /usr/include/c++/13/bits/shared_ptr_base.h:
 
 /usr/include/wchar.h:
@@ -614,6 +611,12 @@ CMakeFiles/rtt.dir/main.cpp.o: /home/parth/Work/All_data/project/C++/raytracing/
 /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h:
 
 /usr/include/x86_64-linux-gnu/bits/environments.h:
+
+/usr/include/c++/13/bits/quoted_string.h:
+
+/usr/include/c++/13/bits/chrono_io.h:
+
+/home/parth/Work/All_data/project/C++/raytracing/material.hpp:
 
 /usr/include/c++/13/backward/auto_ptr.h:
 
