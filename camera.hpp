@@ -15,6 +15,9 @@ public:
     int samples_per_pixel = 10;      // Count of random samples for each pixel
     int max_depth = 10;              // Maximum number of ray bounces into scene
     double vfov = 90;
+    point3 lookfrom = vec3(0, 0, 0);
+    point3 lookat = vec3(0, 0, -1);
+    point3 view_up = vec3(0, 1, 0);
 
     void render(const Hittable &world)
     {
@@ -62,6 +65,7 @@ private:
     point3 camera_center;
     std::ofstream outputFile;
     Random random{};
+    vec3 u, v, w; // Camera frame basis vectors
 
     void initialize()
     {
@@ -70,23 +74,27 @@ private:
         image_height = image_width / aspect_ratio;
         image_height = image_height < 1 ? 1 : image_height;
 
-        double focal_length{1.0};
-        camera_center = {0, 0, 0};
+        camera_center = lookfrom;
+        double focal_length{(lookfrom - lookat).value()};
 
-        double viewport_height = 2 * tan(degrees_to_radians(vfov)/2) * focal_length;
+        double viewport_height = 2 * tan(degrees_to_radians(vfov) / 2) * focal_length;
         //  I have not used aspect ratio as when computing viewport_width, it's because the value set to aspect_ratio is the ideal ratio, it may not be the actual ratio between image_width and image_height. If image_height was allowed to be real valued—rather than just an integer—then it would be fine to use aspect_ratio. But the actual ratio between image_width and image_height can vary based on two parts of the code. First, image_height is rounded down to the nearest integer, which can increase the ratio. Second, we don't allow image_height to be less than one, which can also change the actual aspect ratio.
         double viewport_width = viewport_height * (double(image_width) / image_height);
 
+        w = unit_vector(lookfrom - lookat);
+        u = unit_vector(cross(view_up, w));
+        v = cross(w, u);
+
         // Calculate the vectors across the horizontal and down the vertical viewport edges.
-        vec3 viewport_x_vec{viewport_width, 0, 0};
-        vec3 viewport_y_vec{0, -viewport_height, 0};
+        vec3 viewport_x_vec{viewport_width * u};
+        vec3 viewport_y_vec{-viewport_height * v};
 
         // Calculate the horizontal and vertical delta vectors from pixel to pixel.
         pixel_delta_x = viewport_x_vec / image_width;
         pixel_delta_y = viewport_y_vec / image_height;
 
         // Calculate the location of the upper left pixel.
-        point3 viewport_upper_left = camera_center - vec3(0, 0, focal_length) - viewport_x_vec / 2 + ((-1 * viewport_y_vec) / 2);
+        point3 viewport_upper_left = camera_center - (focal_length * w) - viewport_x_vec / 2 + ((-1 * viewport_y_vec) / 2);
         pixel00_loc = viewport_upper_left + (0.5 * (pixel_delta_x + pixel_delta_y));
     }
 
