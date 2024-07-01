@@ -3,11 +3,16 @@
 
 #include "ray.hpp"
 
+
+class Material;
+
+
 class HitRecord {
     public:
         point3 point;
         vec3 normal;
         double distance;
+        std::shared_ptr<Material> material;
         bool hit_on_front_face;
 
     void set_hit_on_front_face(const Ray& ray, const vec3& outward_normal){

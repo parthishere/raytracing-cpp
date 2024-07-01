@@ -6,7 +6,9 @@
 
 class Sphere : public Hittable {
     public:
-        Sphere(const point3& center, double radius) : center(center), radius(fmax(0,radius)) {}
+        Sphere(const point3& center, double radius) : center(center), radius(fmax(0,radius)) {
+            // TODO: Initialize the material pointer `mat`.
+        }
 
         bool hit(const Ray& ray, Interval ray_t, HitRecord& record) const override {
 
@@ -34,6 +36,7 @@ class Sphere : public Hittable {
             record.distance = root;
             record.point = ray.point_along_ray(record.distance);
             record.normal = (record.point - center) / radius;  //unit vector
+            record.material = material;
 
             return true;
         }
@@ -41,6 +44,7 @@ class Sphere : public Hittable {
     private:
         point3 center;
         double radius;
+        std::shared_ptr<Material> material;
 };
 
 
