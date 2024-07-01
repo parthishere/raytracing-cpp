@@ -50,6 +50,8 @@ class Metal : public Material {
         const override
     {
         vec3 reflected = reflect(ray_in.direction(), record.normal);
+        
+        // If a and b represent displacements, their sum c is the total displacement.
         reflected = unit_vector(reflected) + (fuzz * random_unit_vector());
         scattered_ray = Ray(record.point, reflected);
         attenuation = albedo;
