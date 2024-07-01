@@ -14,14 +14,14 @@ public:
     double aspect_ratio{16.0 / 9.0}; // Ratio of image width over height
     int samples_per_pixel = 10;      // Count of random samples for each pixel
     int max_depth = 10;              // Maximum number of ray bounces into scene
+    double vfov = 90;
 
     void render(const Hittable &world)
     {
         initialize();
 
         // render
-        std::cout << "P3\n"
-                  << image_width << ' ' << image_height << "\n255\n";
+        std::cout << "\nWidth: " << image_width << " | Height: " << image_height << " | Max color value: 255 \n";
         if (outputFile.is_open())
         {
             outputFile << "P3\n"
@@ -51,7 +51,7 @@ public:
         }
         outputFile.close();
         // std::cout << "Hellow world! " << std::endl;
-        std::clog << "\rDone.                 \n";
+        std::clog << "\rDone.                 \n\n";
     }
 
 private:
@@ -111,10 +111,11 @@ private:
         {
             Ray scattered;
             color attenuation;
-            if(record.material->scatter(ray, record, attenuation, scattered)){
-                return attenuation * ray_Color(scattered, max_depth-1, world);
+            if (record.material->scatter(ray, record, attenuation, scattered))
+            {
+                return attenuation * ray_Color(scattered, max_depth - 1, world);
             }
-            return color(0,0,0);
+            return color(0, 0, 0);
         }
 
         vec3 unit_direction = unit_vector(ray.direction());

@@ -154,7 +154,7 @@ inline vec3 random_on_hemisphere(const vec3 &normal)
         return -on_unit_sphere;
 }
 
-inline vec3 reflect(const vec3 &v, const vec3 &n)
+inline vec3 reflect(const vec3 &direction, const vec3 &normal)
 {
 
     // Putting it Together:
@@ -171,7 +171,13 @@ inline vec3 reflect(const vec3 &v, const vec3 &n)
     // To reflect, we need this arrow to point out of the surface with the same magnitude.
     // Simply negating it (subtracting once) would only bring it to zero (cancelling out).
     // We need to go beyond zero to the opposite direction, hence the "overshoot".
-    return v - 2 * dot(v, n) * n;
+    return direction - 2 * dot(direction, normal) * normal;
 }
 
+
+inline vec3 refract(const vec3 &direction, const vec3 &normal,  double air_upon_medium){
+    vec3 r_out_perpendicular = air_upon_medium * (direction - (dot(direction, normal) * normal));
+    vec3 r_out_parallel = -1 * sqrt(fabs(1 - r_out_perpendicular.value_squared())) * normal;
+    return r_out_parallel + r_out_perpendicular;
+}
 #endif
