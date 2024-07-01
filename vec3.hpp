@@ -174,9 +174,9 @@ inline vec3 reflect(const vec3 &direction, const vec3 &normal)
     return direction - 2 * dot(direction, normal) * normal;
 }
 
-
-inline vec3 refract(const vec3 &direction, const vec3 &normal,  double air_upon_medium){
-    vec3 r_out_perpendicular = air_upon_medium * (direction - (dot(direction, normal) * normal));
+inline vec3 refract(const vec3 &direction, const vec3 &normal, double air_upon_medium)
+{
+    vec3 r_out_perpendicular = air_upon_medium * (direction - (fmin(dot(direction, normal), 1.0) * normal));
     vec3 r_out_parallel = -1 * sqrt(fabs(1 - r_out_perpendicular.value_squared())) * normal;
     return r_out_parallel + r_out_perpendicular;
 }

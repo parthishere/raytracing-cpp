@@ -19,7 +19,7 @@ int main()
   HittableList world;
   auto material_ground = make_shared<Lambertian>(color(0.8, 0.8, 0.0));
   auto material_center = make_shared<Metal>(color(0.1, 0.2, 0.5), 0.0);
-  auto material_left = make_shared<Metal>(color(0.8, 0.8, 0.8), 0.5);
+  auto material_left = make_shared<Dielectric>(1.00 / 1.33);
   auto material_right = make_shared<Metal>(color(0.8, 0.6, 0.2), 1.0);
 
   world.add(make_shared<Sphere>(point3(0.0, 0.0, -1.2), 0.5, material_center));

@@ -111,6 +111,7 @@ private:
         {
             Ray scattered;
             color attenuation;
+            record.set_hit_on_front_face(ray, record.normal);
             if (record.material->scatter(ray, record, attenuation, scattered))
             {
                 return attenuation * ray_Color(scattered, max_depth - 1, world);
